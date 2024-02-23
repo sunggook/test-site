@@ -15,7 +15,7 @@ function handleError(error) {
 
 function log(msg, error) {
   const errorElement = document.querySelector('#errorMsg');
-  errorElement.innerHTML += `<p>${msg}</p>`;
+  errorElement.innerHTML += `${msg}<br>`;
 }
 
 enumDeviceButton.addEventListener('click', () => {
