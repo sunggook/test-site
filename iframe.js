@@ -62,3 +62,14 @@ window.addEventListener('message', (event) => {
     selectedDeviceId = event.data;
   }
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  navigator.mediaDevices.enumerateDevices()
+    .then((devices) => {
+      devices.forEach((device) => {
+        if (device.kind === 'audiooutput') {
+          logMessage(`${device.label}, ${device.deviceId}`, true);
+        }
+      });
+    }).catch(handleError);
+});

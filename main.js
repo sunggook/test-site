@@ -1,7 +1,5 @@
 'use strict';
 
-let firstDeviceid = "";
-let thirdDeviceId = "";
 let selectedDeviceId = "";
 
 let mediaRecorder;
@@ -109,19 +107,9 @@ defaultSinkIdButton.addEventListener('click', async () => {
 document.addEventListener('DOMContentLoaded', (event) => {
   navigator.mediaDevices.enumerateDevices()
     .then((devices) => {
-      const audioCtx = null;
-      let order = 0;
       devices.forEach((device) => {
         if (device.kind === 'audiooutput') {
           logMessage(`${device.label}, ${device.deviceId}`, true);
-          ++order;
-          if (order == 1)
-            firstDeviceid = device.deviceId;
-
-          if (device.label.indexOf('Communications') !== -1) {
-            thirdDeviceId = device.deviceId;
-            return;
-          }
         }
       });
     }).catch(handleError);
