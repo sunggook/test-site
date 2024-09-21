@@ -24,6 +24,9 @@ function handleError(msg) {
   logMessage(`Error: ${msg}`, true);
 }
 
+let iframe1 = document.getElementById('iframe1');
+let iframe2 = document.getElementById('iframe2');
+
 const defaultButton = document.getElementById('default1');
 defaultButton.addEventListener('click', () => {
   selectedDeviceId = "default";
